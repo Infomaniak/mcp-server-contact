@@ -17,7 +17,7 @@ if (!token) {
 const server = new McpServer(
     {
         name: "Infomaniak Contact MCP Server",
-        version: "0.0.1",
+        version: "1.0.0",
     },
     {
         capabilities: {
