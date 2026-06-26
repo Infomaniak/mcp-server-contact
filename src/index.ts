@@ -4,6 +4,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { ContactClient } from "./contact-client.js";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const { version } = require("../package.json") as { version: string };
 
 const token = process.env.CONTACT_TOKEN;
 
@@ -17,7 +21,7 @@ if (!token) {
 const server = new McpServer(
     {
         name: "Infomaniak Contact MCP Server",
-        version: "1.0.1",
+        version,
     },
     {
         capabilities: {
